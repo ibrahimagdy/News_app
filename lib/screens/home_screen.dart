@@ -25,10 +25,13 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          CategoryListView(),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          children: [
+            CategoryListView(),
+          ],
+        ),
       ),
     );
   }
