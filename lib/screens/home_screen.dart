@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/widgets/category_list_view.dart';
+import 'package:news_app/widgets/news_item.dart';
+import 'package:news_app/widgets/news_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -27,9 +29,15 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
-          children: [
-            CategoryListView(),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: CategoryListView(),
+            ),
+            const SliverToBoxAdapter(
+              child: SizedBox(height: 32),
+            ),
+            NewsListView(),
           ],
         ),
       ),
