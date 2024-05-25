@@ -12,15 +12,19 @@ class NewsItem extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: Image.asset(newsItemModel.image),
-        ),
+          child: Image.network(newsItemModel.image ??
+                "https://play-lh.googleusercontent.com/ajZF_-7yzY1t9l0zqSkw6qqvg7wUNmn8y3GvRMkQPwnve4MjVdtjg-tpvCHmaU1Kcfur")),
         Text(
           newsItemModel.title,
           style: const TextStyle(color: Colors.black, fontSize: 18),
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
         ),
         Text(
-          newsItemModel.desc,
+          newsItemModel.desc ?? "",
           style: const TextStyle(color: Colors.grey, fontSize: 15),
+          maxLines: 3,
+          overflow: TextOverflow.ellipsis,
         ),
         const SizedBox(height: 16),
       ],
