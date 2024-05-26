@@ -36,6 +36,8 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
               child: CircularProgressIndicator(),
             ),
           )
-        : NewsListView(news: news);
+        : news.isNotEmpty
+            ? NewsListView(news: news)
+            : const Text("oops there was a server error, try again later");
   }
 }
