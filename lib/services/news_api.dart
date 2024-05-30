@@ -16,11 +16,7 @@ class NewsApi {
       List<NewsItemModel> articleList = [];
 
       for (var article in articles) {
-        NewsItemModel newsItemModel = NewsItemModel(
-          image: article['urlToImage'],
-          title: article['title'],
-          desc: article['description'],
-        );
+        NewsItemModel newsItemModel = NewsItemModel.fromJson(article);
         articleList.add(newsItemModel);
       }
       return articleList;
